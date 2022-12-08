@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<title>Employee Management System</title>
+</head>
+<body class="bg-info">
+
+	<div class="container mt-3">
+
+		<div class="row">
+			<div
+				class="card text-white bg-secondary px-5 py-5 mt-5 col-md-6 offset-md-3"
+				style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+				<h1 class="text-light text-center mb-3">Update the Employee detail</h1>
+
+				<!--  Add Employee Form  -->
+				<form action="#" th:action="@{/saveEmployee}" th:object ="${employee}" method="POST">
+					
+					<!-- Add hidden form field to handle update -->
+					<input type="hidden" th:field="*{id}">
+					
+					<div class="form-group">
+						<label for="fname">Update Employee First Name</label> <input th:field = "*{firstName}" name="fname"
+							type="text" class="form-control" id="fname"
+							aria-describedby="emailHelp"
+							placeholder="Update the first name here" required>
+					</div>
+
+					<div class="form-group">
+						<label for="lname">Update Employee Last Name</label>
+						<input th:field="*{lastName}" name="lname" class="form-control" id="lname"
+							placeholder="Update the last Name" required></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Update Employee Email</label> <input th:field = "*{email}" name="email"
+							type="email" class="form-control" id="email"
+							aria-describedby="emailHelp" placeholder="Update the email"
+							required>
+					</div>
+
+					<div class="container text-center">
+						<a th:href="@{/home}"
+							class="btn btn-outline-light">Back</a>
+						<button type="submit" class="btn btn-outline-light">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
